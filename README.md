@@ -1,3 +1,3 @@
 # Loc's personal portfolio
 
-[Stroke Exploratory Data Analysis][/EDA_Basics/EDA.md]
+[Stroke Exploratory Data Analysis](/EDA_Basics/EDA.md)
