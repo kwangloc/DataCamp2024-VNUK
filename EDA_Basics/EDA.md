@@ -43,20 +43,15 @@ part with practice).
 -   Similarly, there are suggestive questions throughout the report that
     might take deeper investigation and thought. Your answers would be
     useful for both your reports and future job interviews
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" executionInfo="{\"elapsed\":23503,\"status\":\"ok\",\"timestamp\":1731730322581,\"user\":{\"displayName\":\"Gia Ngo\",\"userId\":\"10487874870828670874\"},\"user_tz\":-420}" id="9EkfqhGQUpFC" outputId="914325b3-ee8c-4763-e5ea-c47c83f8afa8"}
+
 ``` python
 from google.colab import drive
 drive.mount("/content/drive")
 ```
 
-::: {.output .stream .stdout}
-    Mounted at /content/drive
-:::
-:::
 
-::: {.cell .markdown id="flmr1unIX3wx"}
+
 We will upload file `healthcare-dataset-stroke-data.csv` to a directory
 called `DataCamp` on your Google Drive
 
@@ -579,67 +574,27 @@ outliers for all numerical columns?
 sns.barplot(x = stroke_data["work_type"].unique(), y = stroke_data["work_type"].value_counts(), palette="rocket").set(title="work_type")
 ```
 
-::: {.output .execute_result execution_count="31"}
-    [Text(0.5, 1.0, 'work_type')]
-:::
 
-::: {.output .display_data}
-![](vertopal_06d9ea46beb347118dddc7d1de13cde1/f846d842da425c7c9e17f161ae3367c85ce7a9fc.png)
-:::
-:::
 
-::: {.cell .markdown id="AytA3rkuiIs6"}
+
 ### Analysing Target Variable
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":469}" executionInfo="{\"elapsed\":423,\"status\":\"ok\",\"timestamp\":1731736702266,\"user\":{\"displayName\":\"Gia Ngo\",\"userId\":\"10487874870828670874\"},\"user_tz\":-420}" id="ynmBOeS7iIHt" outputId="002d3f0f-babd-496f-acc6-9352a618dc2d"}
 ``` python
 # Get stroke counts and plot
 stroke_data["stroke"].value_counts()
 sns.barplot(x = stroke_data["stroke"].unique(), y = stroke_data["stroke"].value_counts(), palette="viridis").set(title="Stroke")
 ```
-
-::: {.output .execute_result execution_count="32"}
-    [Text(0.5, 1.0, 'Stroke')]
-:::
-
-::: {.output .display_data}
-![](vertopal_06d9ea46beb347118dddc7d1de13cde1/d9dedc2706486b1583961665c63b7ed4fffaf6d9.png)
-:::
-:::
-
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":475}" executionInfo="{\"elapsed\":482,\"status\":\"ok\",\"timestamp\":1731736715235,\"user\":{\"displayName\":\"Gia Ngo\",\"userId\":\"10487874870828670874\"},\"user_tz\":-420}" id="Tuu5th7jiWpI" outputId="7b9a9bbe-cb07-44c7-b0ac-e40ac2612662"}
 ``` python
 # Plot as percentage
 plt.pie(stroke_data["stroke"].value_counts(), labels=[1,0], colors=["indianred", "mistyrose"])
 ```
-
-::: {.output .execute_result execution_count="34"}
-    ([<matplotlib.patches.Wedge at 0x7a279a0b4700>,
-      <matplotlib.patches.Wedge at 0x7a279a0b4610>],
-     [Text(-1.0871361453364168, 0.16773491438301516, '1'),
-      Text(1.087136143373357, -0.1677349271061446, '0')])
-:::
-
-::: {.output .display_data}
-![](vertopal_06d9ea46beb347118dddc7d1de13cde1/30b9d4e28eae1fecfde6730c45dd5b3400c26e40.png)
-:::
-:::
-
-::: {.cell .markdown id="WGZDHV8wkllx"}
-Ratio of 1s is 95.1%
-:::
-
-::: {.cell .markdown id="KSfODNa4jg_Q"}
 **Exercises**
 
 -   Can you update the labels to \"Stroke\" and \"No stroke\" instead of
     \"0\" and \"1\"?
 -   Can you comment on the distribution of \"Stroke\" vs \"No stroke\"
     labels, how would this affect your predictive model?
-:::
 
-::: {.cell .markdown id="YSyx2JwApgMs"}
 # More advanced analytics
 
 Often time, the intention of (3) Exploratory Data Analytics is to help
@@ -657,27 +612,15 @@ variables, more specifically the relationship between predictors
     are more important etc. These questions are often more important
     (and more difficult) than being able to predict certain variables
     accurately.
-:::
 
-::: {.cell .markdown id="0X0YznqemmZy"}
 ## Correlation between numerical columns
-:::
-
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":452}" id="5si1wSZvmlDO" outputId="9af6dcd2-a9eb-4d8a-c2fd-5097cd9afc3d"}
 ``` python
 sns.heatmap(stroke_data[numerical_cols].corr(), annot=True, linewidths=0.5,)
 ```
 
-::: {.output .execute_result execution_count="24"}
-    <Axes: >
-:::
 
-::: {.output .display_data}
 ![](vertopal_06d9ea46beb347118dddc7d1de13cde1/c1b6c68f2a369857e1778b871b56268a821f1a12.png)
-:::
-:::
 
-::: {.cell .markdown id="3qd5gBtJndEe"}
 **Exercises**
 
 -   What is correlation coefficient? How is it computed and why it is
@@ -687,13 +630,9 @@ sns.heatmap(stroke_data[numerical_cols].corr(), annot=True, linewidths=0.5,)
 -   Why is it important (or may not be important) to consider
     correlation between varibles? See here
     <https://www.widsworldwide.org/get-inspired/blog/a-data-scientists-deep-dive-into-the-wids-datathon/>
-:::
 
-::: {.cell .markdown id="MUt1MSnFWqdQ"}
 ## Target Variable vs Numerical Attributes
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="dUOKPpaQq2jp" outputId="968e20f9-3bcc-4e40-a57c-9884fd588247"}
 ``` python
 for col in numerical_cols:
     print(stroke_data.groupby("stroke").agg({col:"mean"}), end="\n\n")
@@ -720,20 +659,14 @@ for col in numerical_cols:
     0       28.823064
     1       30.471292
 :::
-:::
 
-::: {.cell .markdown id="MG4R3MHwrA7X"}
 **Exercises**
 
 -   Can you visualize these results?
 -   What interpretation can you draw from these results?
-:::
 
-::: {.cell .markdown id="M-9l1NpbXJnn"}
 ## Target Variable vs Categorical Attributes
-:::
 
-::: {.cell .markdown id="2LtJ39EJr-20"}
 **Exercises**
 
 -   Can you repeat the computation above for categorical columns?
