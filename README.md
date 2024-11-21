@@ -1,2 +1,3 @@
 # Loc's personal portfolio
-Hello, wordl!
+
+[Stroke Exploratory Data Analysis][/EDA_Basics/EDA.md]
