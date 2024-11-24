@@ -18,15 +18,10 @@ jupyter:
   nbformat_minor: 0
 ---
 
-::: {.cell .markdown id="khADV6sxXtwJ"}
 # Exploratory Data Analysis (EDA)
-:::
 
-::: {.cell .markdown id="Cw7g_fNJYcwT"}
 # 0. Import libraries and dataset {#0-import-libraries-and-dataset}
-:::
 
-::: {.cell .code execution_count="1" id="RnLB9DgYZ6S9"}
 ``` python
 import numpy as np
 import pandas as pd
@@ -35,20 +30,16 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings("ignore")
 ```
-:::
 
-::: {.cell .code execution_count="2" colab="{\"base_uri\":\"https://localhost:8080/\"}" executionInfo="{\"elapsed\":503,\"status\":\"ok\",\"timestamp\":1731730768823,\"user\":{\"displayName\":\"Gia Ngo\",\"userId\":\"10487874870828670874\"},\"user_tz\":-420}" id="TJ7CSOKvQjUk" outputId="665d7929-f374-440a-a97d-e25f5c606056"}
 ``` python
 filepath = "./healthcare-dataset-stroke-data.csv"
 stroke_data = pd.read_csv(filepath)
 ```
 :::
 
-::: {.cell .markdown id="LcQ5Al0zLNV7"}
 # 1. Understanding Data Context {#1-understanding-data-context}
 :::
 
-::: {.cell .markdown}
 ## 1.1. Define problem {#11-define-problem}
 
 According to the World Health Organization (WHO) stroke is the 2nd
@@ -72,15 +63,12 @@ part with practice).
 -   Similarly, there are suggestive questions throughout the report that
     might take deeper investigation and thought. Your answers would be
     useful for both your reports and future job interviews
-:::
 
-::: {.cell .code execution_count="3"}
 ``` python
 # Print the DataFrame
 stroke_data
 ```
 
-::: {.output .execute_result execution_count="3"}
 ```{=html}
 <div>
 <style scoped>
@@ -292,13 +280,10 @@ stroke_data
 ## 1.2. Describe the dataset {#12-describe-the-dataset}
 :::
 
-::: {.cell .markdown}
 ### 1.2.1 Properties of the dataset {#121-properties-of-the-dataset}
 
 -   info, shape, columns, describe
-:::
 
-::: {.cell .code execution_count="4"}
 ``` python
 stroke_data.info()
 ```
@@ -326,7 +311,6 @@ stroke_data.info()
 :::
 :::
 
-::: {.cell .code execution_count="5" colab="{\"base_uri\":\"https://localhost:8080/\"}" executionInfo="{\"elapsed\":417,\"status\":\"ok\",\"timestamp\":1731730795633,\"user\":{\"displayName\":\"Gia Ngo\",\"userId\":\"10487874870828670874\"},\"user_tz\":-420}" id="5K5pxmuxaLf5" outputId="ce66a82c-2d14-46f3-bba9-c13af78b2189"}
 ``` python
 stroke_data.columns
 ```
@@ -339,7 +323,6 @@ stroke_data.columns
 :::
 :::
 
-::: {.cell .code execution_count="6" colab="{\"base_uri\":\"https://localhost:8080/\"}" executionInfo="{\"elapsed\":940,\"status\":\"ok\",\"timestamp\":1731730793116,\"user\":{\"displayName\":\"Gia Ngo\",\"userId\":\"10487874870828670874\"},\"user_tz\":-420}" id="2CC-X6mJUqKO" outputId="e0cbf183-921f-4aa8-b669-26fc485cfbcf"}
 ``` python
 stroke_data.shape
 ```
@@ -349,12 +332,10 @@ stroke_data.shape
 :::
 :::
 
-::: {.cell .code execution_count="7"}
 ``` python
 stroke_data.describe()
 ```
 
-::: {.output .execute_result execution_count="7"}
 ```{=html}
 <div>
 <style scoped>
@@ -471,7 +452,6 @@ stroke_data.describe()
 :::
 :::
 
-::: {.cell .code execution_count="8"}
 ``` python
 stroke_counts = stroke_data['stroke'].value_counts()
 stroke_counts
@@ -485,7 +465,6 @@ stroke_counts
 :::
 :::
 
-::: {.cell .code execution_count="9"}
 ``` python
 stroke_percentages = stroke_data['stroke'].value_counts(normalize=True) * 100
 stroke_percentages
@@ -516,10 +495,7 @@ plt.show()
 
 ::: {.output .display_data}
 ![](vertopal_5c25aca6aec1471182e48a2a120ea67c/092bcd3669f3a777f49bdcb83d4c398a7b79b3e7.png)
-:::
-:::
 
-::: {.cell .markdown}
 ### 1.1.2. The meaning of columns {#112-the-meaning-of-columns}
 
 Each row in the data provides relavant information about the patient.
@@ -545,28 +521,20 @@ Each row in the data provides relavant information about the patient.
     unavailable for this patient
 :::
 
-::: {.cell .markdown}
 ## 1.3. Exercises {#13-exercises}
 :::
 
-::: {.cell .markdown id="fmy29b42M09V"}
 `<span style="color: yellow; font-weight: bold;">`{=html}Exercises:`</span>`{=html}
 
 -   1.  Which columns are numerical and which ones are categorical?
 
 -   1.  Why is it important to analyze numerical and non-numerical
         columns separately?
-:::
 
-::: {.cell .markdown}
 ### 1.3.1. Exercise 1 {#131-exercise-1}
-:::
 
-::: {.cell .markdown}
 -   Determine the datatype of each column by its dtype
-:::
 
-::: {.cell .code execution_count="11"}
 ``` python
 num_cols = []
 cate_cols = []
@@ -583,9 +551,7 @@ print('cate cols:', cate_cols)
     num cols: ['id', 'age', 'hypertension', 'heart_disease', 'avg_glucose_level', 'bmi', 'stroke']
     cate cols: ['gender', 'ever_married', 'work_type', 'Residence_type', 'smoking_status']
 :::
-:::
 
-::: {.cell .code execution_count="12"}
 ``` python
 stroke_data.info()
 ```
@@ -611,13 +577,9 @@ stroke_data.info()
     dtypes: float64(3), int64(4), object(5)
     memory usage: 479.2+ KB
 :::
-:::
 
-::: {.cell .markdown}
 ### 1.3.2. Exercise 2 {#132-exercise-2}
-:::
 
-::: {.cell .markdown}
 -   Analyzing numerical and non-numerical (categorical) columns
     separately in a data science project is crucial because they contain
     different types of information and require distinct handling for
@@ -657,11 +619,8 @@ stroke_data.info()
         group-wise comparisons.
 :::
 
-::: {.cell .markdown id="KqlGgrG-NgXZ"}
 # 2. Formulate Data Questions (Hypothesis) {#2-formulate-data-questions-hypothesis}
-:::
 
-::: {.cell .markdown}
 ## 2.1. Problems {#21-problems}
 
 `<span style="color: yellow; font-weight: bold;">`{=html}Exercises:`</span>`{=html}
@@ -687,23 +646,17 @@ sns.boxplot(data=stroke_data, x='stroke', y='age')
 ::: {.output .display_data}
 ![](vertopal_5c25aca6aec1471182e48a2a120ea67c/a182ef586c45ed50fecdf76e0a890f696d4a6dd9.png)
 :::
-:::
 
-::: {.cell .markdown}
 -\> Insight: Stroke risk tends to increase with age, so older
 individuals may dominate the stroke = 1 category.
 :::
 
-::: {.cell .markdown}
 ### Hypertension and Heart Disease
 :::
 
-::: {.cell .markdown}
 -   Compare the prevalence of hypertension (hypertension = 1) and heart
     disease (heart_disease = 1) in the stroke and non-stroke groups:
-:::
 
-::: {.cell .code execution_count="14"}
 ``` python
 hypertension_by_stroke = stroke_data.groupby('stroke')['hypertension'].mean()
 heart_disease_by_stroke = stroke_data.groupby('stroke')['heart_disease'].mean()
@@ -719,9 +672,7 @@ print(hypertension_by_stroke, heart_disease_by_stroke)
     1    0.188755
     Name: heart_disease, dtype: float64
 :::
-:::
 
-::: {.cell .markdown}
 -\> Insight: People with hypertension or heart disease may have a higher
 risk of stroke.
 :::
@@ -749,7 +700,6 @@ sns.boxplot(data=stroke_data, x='stroke', y='avg_glucose_level')
 ### Smoking Status with Stroke
 :::
 
-::: {.cell .code execution_count="16"}
 ``` python
 sns.countplot(data=stroke_data, x='smoking_status', hue='stroke')
 ```
@@ -763,34 +713,27 @@ sns.countplot(data=stroke_data, x='smoking_status', hue='stroke')
 :::
 :::
 
-::: {.cell .markdown}
 -\> Smoking doesn\'t cause higher stroke rate
 :::
 
-::: {.cell .markdown}
 ### Work Type and Residence
 :::
 
-::: {.cell .code execution_count="17"}
 ``` python
 sns.countplot(data=stroke_data, x='work_type', hue='stroke')
 sns.countplot(data=stroke_data, x='Residence_type', hue='stroke')
 ```
 
-::: {.output .execute_result execution_count="17"}
     <Axes: xlabel='work_type', ylabel='count'>
 :::
 
-::: {.output .display_data}
 ![](vertopal_5c25aca6aec1471182e48a2a120ea67c/4f120e4ba87b467a43f5b27df56323ccdacd8789.png)
-:::
 :::
 
 ::: {.cell .markdown}
 ### Marriage and Stroke Risk
 :::
 
-::: {.cell .code execution_count="18"}
 ``` python
 sns.countplot(data=stroke_data, x='ever_married', hue='stroke')
 ```
@@ -804,11 +747,9 @@ sns.countplot(data=stroke_data, x='ever_married', hue='stroke')
 :::
 :::
 
-::: {.cell .markdown}
 ## 2.2. Multivariate Insights {#22-multivariate-insights}
 :::
 
-::: {.cell .markdown}
 ### \'age\', \'avg_glucose_level\', \'bmi\'
 :::
 
